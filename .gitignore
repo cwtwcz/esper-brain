@@ -1,0 +1,23 @@
+# Operating-system and editor state
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+~$*
+.history/
+
+# Disposable Esper Brain work and Obsidian trash
+.tmp/
+.trash/
+
+# Keep only intentionally portable Obsidian settings
+.obsidian/*
+!.obsidian/app.json
+!.obsidian/daily-notes.json
+!.obsidian/templates.json
+
+# Machine-local agent settings
+.claude/settings.local.json
+.codex/

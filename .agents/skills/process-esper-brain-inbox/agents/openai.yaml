@@ -1,0 +1,4 @@
+interface:
+  display_name: "Process Esper Brain Inbox"
+  short_description: "Turn Inbox files into sourced memory"
+  default_prompt: "Use $process-esper-brain-inbox to process queued files in 00 Inbox safely and update memory."
