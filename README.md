@@ -105,18 +105,24 @@ The agent does not wait for “remember this”. Before finishing a substantive
 conversation, it captures clear durable identity, relationship, project,
 decision, commitment, preference, and correction deltas.
 
-- Existing memory receives small, unambiguous updates automatically.
+- Existing memory receives small, unambiguous updates automatically, including
+  replacing clearly superseded text and reconciling affected decisions and maps.
 - A clearly useful non-project note may be created automatically. A new project
   card still requires consent by default.
 - Named people, companies, products, and projects are resolved through Profile,
   maps, and linked canonical notes before generic context is used.
 - Casual chat, unsupported inference, secrets, and full transcripts are not
   stored as memory.
-- Canonical notes emphasize current useful state. Superseded research is kept
-  only when it explains a decision, commitment, audit trail, or recurring
-  pattern.
+- Keep one current account of each outcome, with links to evidence and technical
+  detail. Preserve history only when it explains a decision or supports an audit;
+  do not turn project cards into activity logs.
 - The assistant answers the topic first and follows the configured technical
   activity reporting mode.
+
+Minor reversible choices stay with the assistant; questions concern material
+decisions or missing authorization. Explicit requests and prior approvals cover
+their stated scope. File deletion, structural reorganization, and external
+actions still follow the authorization boundaries in `AGENTS.md`.
 
 There is no hidden watcher. `inbox_processing: auto` handles queued material
 without a special command while Codex or Claude Code is active;

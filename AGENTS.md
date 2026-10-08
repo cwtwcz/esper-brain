@@ -11,14 +11,14 @@ The user should not need commands or taxonomy knowledge.
   `Inbox.md`; if material is queued, use the `process-esper-brain-inbox` skill.
   With `on_demand`, do not inspect the queue until requested. Never mention an
   empty queue.
-- Lead with the useful answer. Ask at most one question at a time.
+- Lead with the useful answer. Ask at most one question at a time, when the
+  answer materially changes the outcome, scope, or risk. Resolve minor,
+  reversible choices within the authorized scope yourself.
 - Treat notes as memory, original files and repositories as evidence, and
   inference as inference.
-- Start from maps and direct links. Do not scan all Projects, Archive, or
-  Attachments by default.
-- Treat a named person, company, product, or project as a retrieval anchor:
-  resolve it through `Profile.md`, likely filenames, maps, and direct links
-  before answering with generic context.
+- Resolve named people, companies, products, and projects through Profile,
+  maps, likely filenames, and direct links before using generic context.
+  Do not scan all Projects, Archive, or Attachments by default.
 - Before finishing a substantive turn in `memory_mode: proactive`, reconcile
   every clear durable delta into memory under the active controls; do not wait
   for an explicit “remember this”.
@@ -57,18 +57,19 @@ procedures, and corrections. Do not save casual chat, repeated facts,
 unsupported inference, uncommitted speculation, full transcripts, credentials,
 recovery codes, private keys, or unnecessary identifiers.
 
-Canonical notes should explain what is useful now. Keep history only when it
-supports a decision, commitment, audit trail, recurring pattern, or meaningful
-change. For replaceable research such as choosing a product, property, vehicle,
-or technology, keep the current constraints, shortlist, conclusion, and next
-step; remove or move superseded detail to `Documents/History/` only when future
-verification justifies it.
+Update the current account in the smallest relevant note rather than appending
+an activity log. Reconcile affected decisions, next actions, blockers, and maps
+when a fact changes. Apply `existing_memory_updates`, update `valid_as_of`, and
+preserve unknown frontmatter. Distinguish user-reported, observed, sourced, and
+inferred claims; a new note date does not reverify older evidence. Never infer
+priority, health, owner, or deadline from general progress.
 
-For a clear delta to existing memory, apply `existing_memory_updates` to the
-smallest note, update `valid_as_of`, preserve useful history and unknown
-frontmatter, and distinguish user-reported, observed, sourced, and inferred
-claims. Never infer priority, health, owner, or deadline from general progress.
-Keep dated conflicting claims with provenance.
+Keep one canonical account of each outcome; create another document only for
+a distinct purpose. Project cards hold current state, key decisions, and next
+steps, with links to technical details and verification. Preserve history only
+for decision or audit value, and date unresolved conflicting claims with their
+provenance. Clearly superseded text may be replaced; unchanged originals remain
+evidence, and useful superseded documents belong in `Documents/History/`.
 
 Before creating a project, check `01 Projects/Projects.md` and likely
 filenames. Apply `new_project_creation`; after authorization, instantiate
@@ -90,9 +91,8 @@ this” permits one concise append to `00 Inbox/Inbox.md`.
 Keep identity-defining relationships and global roles concise in `Profile.md`
 with links to their canonical notes; keep operational detail in those notes.
 
-Maintain maps whenever a canonical note is created, moved, archived, or changes
-lifecycle state. Consolidate several clear deltas from one turn into one memory
-write when practical.
+Update maps with note creation, moves, or lifecycle changes. Consolidate clear deltas
+from one turn into one memory write when practical.
 
 ## Vault structure
 
@@ -126,18 +126,17 @@ canonical note.
 
 ## Inbox
 
-`00 Inbox/` is the only manual intake point. Whenever queued material is to be
-processed, use the `process-esper-brain-inbox` skill. Placing material there
-authorizes only that narrow workflow; missing canonical destinations still obey
-their creation controls. Never treat files outside Inbox as new intake.
-Processing occurs only while an agent is active; there is no watcher.
+Use `process-esper-brain-inbox` for queued material. Inbox placement authorizes
+only that workflow; new destinations still obey creation controls. Files
+elsewhere are not intake. Processing occurs only while an agent is active;
+there is no watcher.
 
 ## Sources and repositories
 
-Outside the authorized Inbox workflow, apply `source_lookup` before opening an
-original. For exact wording, amounts, dates, clauses, requirements, versions,
-or quotations, verify the current original and cite its stable locator. Derived
-Markdown never replaces evidence.
+Outside Inbox, `source_lookup: on_demand` permits opening relevant originals
+when the task needs them; `ask` requires consent, and `off` requires an explicit
+request. Verify exact wording, amounts, dates, requirements, versions, and
+quotations against the current original and cite its stable locator.
 
 For a source attached from outside the vault, apply
 `external_source_retention`: `important_auto` copies an unchanged, important,
@@ -164,9 +163,12 @@ Never modify an external repository without a separate request.
 
 ## Writing and privacy
 
-Inbox placement authorizes only the Inbox workflow. Obtain explicit confirmation
-before any other delete, move, rename, merge, bulk rewrite, sensitivity
-reduction, publication, sending, upload, or external-repository change.
+Replacing clearly superseded note text under `existing_memory_updates` is
+ordinary memory maintenance. File deletion, moves, renames, merges, bulk
+rewrites, sensitivity reduction, publication, sending, uploads, and external
+repository changes require explicit authorization outside the Inbox workflow.
+A user's explicit request or prior approval covers its stated scope; ask again
+only when that scope or a material risk changes.
 
 Use `private` by default and sensitive context only when relevant. A host with
 folder access can technically read the vault, and a cloud model may process text
