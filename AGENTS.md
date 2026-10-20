@@ -110,8 +110,11 @@ Do not add top-level categories. Under a project, create only useful parts of
 `Documents/Sources/` for unchanged originals, `Documents/Outputs/` for durable
 deliverables, and `Documents/History/` for superseded evidence worth retaining.
 Use root `.tmp/` as the only disposable workspace; never create other root
-scratch or result folders. Replace template placeholders when instantiating a
-canonical note.
+scratch or result folders. Do not install dependencies such as `node_modules`
+or virtual environments in the vault; code work belongs in its repository,
+which still needs its own authorization. Keep large working files out of a
+cloud-synchronized vault: `.gitignore` excludes `.tmp/` from Git, not from sync.
+Replace template placeholders when instantiating a canonical note.
 
 ## Conversation routes
 
@@ -123,6 +126,15 @@ canonical note.
 - Review: read `00 Inbox/Inbox.md`, the project map, and recent Daily Notes;
   surface changed outcomes, blockers, waiting items, decisions, and open loops.
   Save a dated review only when requested or accepted.
+
+## Skills
+
+Skills live in `.agents/skills/<name>/` and are mirrored in
+`.claude/skills/<name>/` for Claude Code; do not use symlinks. `SKILL.md` and
+shared resources such as `references/` or scripts must be identical in both.
+Agent-specific metadata such as `agents/openai.yaml` stays only in its own copy.
+When adding, changing, or removing a skill, update both locations and compare
+the shared files.
 
 ## Inbox
 
@@ -137,6 +149,10 @@ Outside Inbox, `source_lookup: on_demand` permits opening relevant originals
 when the task needs them; `ask` requires consent, and `off` requires an explicit
 request. Verify exact wording, amounts, dates, requirements, versions, and
 quotations against the current original and cite its stable locator.
+
+If a file cannot be read, for example an online-only cloud placeholder, report
+it. Never treat it as an empty note, guess its content, or overwrite it;
+unreadable Inbox material stays queued.
 
 For a source attached from outside the vault, apply
 `external_source_retention`: `important_auto` copies an unchanged, important,
@@ -169,6 +185,12 @@ rewrites, sensitivity reduction, publication, sending, uploads, and external
 repository changes require explicit authorization outside the Inbox workflow.
 A user's explicit request or prior approval covers its stated scope; ask again
 only when that scope or a material risk changes.
+
+One deletion needs no further authorization: working files the agent created
+in `.tmp/` during the current task, once they are no longer needed. Delete only
+inside `.tmp/`, never follow symlinks out of it, and never clear the whole
+folder. Anything else in `.tmp/`, including leftovers from other sessions,
+requires authorization. The user may clear `.tmp/` at any time.
 
 Use `private` by default and sensitive context only when relevant. A host with
 folder access can technically read the vault, and a cloud model may process text

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "ask": [
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(git push *)",
+      "Bash(git reset *)",
+      "Bash(git clean *)"
+    ]
+  },
+  "autoMemoryEnabled": false
+}

@@ -62,11 +62,19 @@ optional. The agent and Obsidian handle the rest:
 Top-level folders are pre-created. Subfolders are created only when real content
 needs them.
 
-Disposable agent work belongs only in the hidden root `.tmp/`, which may be
-cleared at any time and is ignored by Git. Durable project material uses an
-optional functional structure under `Documents/`: unchanged originals in
-`Sources/`, created deliverables in `Outputs/`, and superseded material in
-`History/` only when it still has audit or decision value.
+Skills live in `.agents/skills/` and are mirrored in `.claude/skills/` for
+Claude Code. `SKILL.md` and shared resources stay identical in both copies;
+agent-specific metadata stays in its own copy. See `AGENTS.md`.
+
+Disposable agent work belongs only in the hidden root `.tmp/`, which is ignored
+by Git but not by cloud sync. You may clear it at any time; an agent deletes
+only its own working files there once they are no longer needed and asks before
+removing anything else. Do not install dependencies in the vault.
+
+Durable project material uses an optional functional structure under
+`Documents/`: unchanged originals in `Sources/`, created deliverables in
+`Outputs/`, and superseded material in `History/` only when it still has audit
+or decision value.
 
 ## Example: an offer and a signed contract
 
@@ -180,13 +188,36 @@ its folders to this behavior, update links, and verify before replacing the
 original. A familiar PARA-style structure may remain; the behavior matters more
 than identical folder names.
 
+## Claude Code
+
+`CLAUDE.md` imports `AGENTS.md`, so Claude Code follows the same rules as other
+agents. Start Claude Code from the vault root so it also loads
+`.claude/settings.json`, which:
+
+- turns off Claude Code auto memory (`autoMemoryEnabled: false`), so the vault
+  stays the only memory store instead of a parallel store of selective notes.
+  This does not delete earlier auto memory files or conversation history, and a
+  setting with higher precedence can change the effective value;
+- asks before `rm`, `rmdir`, `git push`, `git reset`, and `git clean`.
+
+These rules add caution; they do not enforce `AGENTS.md`. They do not match
+variants such as `/bin/rm` or `git -C . push`, commands run through an
+interpreter, file edits, moves, sending, or connectors. Authorization recorded
+in `Profile.md` or given in conversation does not suppress these prompts,
+including for allowed cleanup in `.tmp/`. To change the rules, edit
+`.claude/settings.json` in your own copy; an `allow` in
+`.claude/settings.local.json` does not override a project `ask`. Other agents
+use their own permission mechanisms, which this template does not configure.
+
+Settings checked against the Claude Code documentation on 2026-10-21.
+
 ## Security boundary
 
 Markdown instructions guide behavior but are not a sandbox. A host with folder
 access can technically read its contents, and a cloud model may process text
 used for an answer. Do not store passwords, tokens, private keys, or recovery
 codes in the vault. See `SECURITY.md` before connecting a vault to GitHub or a
-new model provider.
+new model provider, or keeping it in a cloud-synchronized folder.
 
 ## License
 
