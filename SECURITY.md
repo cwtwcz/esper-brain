@@ -18,6 +18,10 @@ used in an answer may be processed by the configured model provider. Grant
 workspace and connector access only to services whose privacy terms are
 acceptable for the material involved.
 
+In Claude Code, `.claude/settings.json` adds permission prompts for a few
+risky shell commands. Everywhere else, and for anything those rules do not
+match, `AGENTS.md` is guidance rather than technical enforcement.
+
 Sensitivity labels improve retrieval discipline but are not encryption or
 technical access controls. Do not store passwords, access tokens, private keys,
 recovery codes, or unnecessary identity numbers in the vault.
@@ -37,6 +41,11 @@ them only with explicit authorization.
 Obsidian trash, workspace state, plugin data, and temporary agent outputs are
 ignored by the template. A sync provider, filesystem backup, private Git host,
 or model provider may still retain copies according to its own policy.
+`.gitignore` does not stop a sync provider from copying `.tmp/`.
+
+Online-only files in Dropbox, iCloud Drive, or OneDrive may need to download
+when opened, or may be unreadable for an agent. Mark the vault as available
+offline. An agent reports an unreadable file instead of guessing its content.
 
 ## Reporting a problem
 

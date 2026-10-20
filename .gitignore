@@ -20,4 +20,5 @@ desktop.ini
 
 # Machine-local agent settings
 .claude/settings.local.json
+CLAUDE.local.md
 .codex/
