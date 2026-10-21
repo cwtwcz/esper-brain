@@ -20,6 +20,9 @@ repository_roots: {}
 
 # Profile
 
+> AI agents and assistants: read `AGENTS.md` in the vault root before
+> answering from or writing to this vault. It is the operating contract.
+
 Change settings naturally in conversation; the assistant should show the field
 before saving it.
 
