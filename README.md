@@ -3,85 +3,57 @@
 > AI agents and assistants: read `AGENTS.md` in the vault root before
 > answering from or writing to this vault. It is the operating contract.
 
-> **A second brain memory system that grows with every conversation.**
+**A second brain that grows with every conversation.**
 
-**ESPER** stands for **Evidence-Sourced Personal Evolving Repository**.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Obsidian vault](https://img.shields.io/badge/Obsidian-vault-7C3AED)
+![Agents: AGENTS.md](https://img.shields.io/badge/agents-AGENTS.md-black)
 
-A small, effective Obsidian and Markdown memory template built around natural
-conversation. No database, npm, indexing service, or background process.
+**ESPER** stands for **Evidence-Sourced Personal Evolving Repository**: an
+Obsidian and plain-Markdown memory template that an AI agent maintains while
+you work with it normally. No database, no npm, no indexing service, no
+background process.
 
-## Privacy first
+## Why Esper Brain
 
-This repository contains only the empty public template. A personal vault will
-contain private memory and should stay local or in a repository whose visibility
-and collaborators you have deliberately chosen.
+- **Memory from normal conversation.** The agent captures durable facts,
+  decisions, commitments and corrections without waiting for "remember this".
+- **One intake folder.** Drop anything into `00 Inbox/`; the agent files it.
+  Manual filing is optional.
+- **Evidence over summaries.** Notes are synthesis; originals are preserved
+  and consulted for exact amounts, clauses and quotations.
+- **Tool-neutral.** The rules live in one `AGENTS.md`. Codex, Claude Code and
+  other agents follow the same contract, so you can switch tools without
+  migrating memory.
+- **Plain files.** Everything is Markdown in folders you own: readable in
+  Obsidian, any editor, or Git.
+- **Asks only when it matters.** Minor reversible choices stay with the agent;
+  deletions, restructuring and external actions require authorization.
 
-- On GitHub, use **Use this template**, create a **private** repository, and
-  verify its visibility before adding personal information.
-- For a local-only vault, download the template as an archive and keep it
-  outside Git, or remove its Git metadata before use.
-- Do not create a public fork for personal memory. Deleting a committed secret
-  or note later does not remove it from Git history.
+## Quick start
 
-## Start in three steps
+> [!IMPORTANT]
+> A populated vault is private. Never put personal memory in a public
+> repository or a public fork; deleting a file later does not remove it from
+> Git history. See [Privacy](#privacy-and-security).
 
-1. Create a private repository from the template, or download a local copy.
-2. Open the repository root as an Obsidian vault and as a Codex or Claude Code
-   workspace.
-3. Start talking normally, or place a file in `00 Inbox/`.
+1. **Create your copy.** Click **Use this template** → create a **private**
+   repository, or download the archive for a local-only vault (remove `.git`
+   if you do not want version control).
+2. **Open the folder** as an Obsidian vault and as the workspace of your agent
+   (Codex, Claude Code, or another `AGENTS.md`-aware tool), started from the
+   vault root.
+3. **Start talking**, or drop a file into `00 Inbox/`.
 
-Nothing needs to be installed. The assistant learns useful context while doing
-real work instead of forcing an onboarding questionnaire or filing ritual.
+Nothing needs to be installed. There is no onboarding questionnaire: the agent
+learns context while doing real work.
 
-Optional Obsidian shortcuts: enable the **Daily notes** and **Templates** core
-plugins under **Settings → Core plugins**. Their folders are already configured;
-Esper Brain works without them.
+Optional: enable the **Daily notes** and **Templates** core plugins in
+Obsidian (**Settings → Core plugins**). Their folders are preconfigured.
 
-## The only folder you need to manage
+## How it works
 
-Put every unprocessed note, transcript, screenshot, PDF, or document in
-`00 Inbox/`. You may browse and edit the entire vault, but manual filing is
-optional. The agent and Obsidian handle the rest:
-
-- `00 Inbox/` — **user:** the single intake point. `Inbox.md` also holds short
-  conversation captures and unresolved items.
-- `01 Projects/` — **agent:** finite efforts, project cards, and documents that
-  belong to one project.
-- `02 Areas/` — **agent:** ongoing responsibilities such as health, finances,
-  family, a professional role, or maintaining a home.
-- `03 Resources/` — **agent:** durable knowledge and authoritative sources used
-  across multiple projects.
-- `04 Archive/` — **agent:** completed projects, inactive material, and
-  processed intake retained for provenance.
-- `05 Daily Notes/` — **Obsidian or agent:** dated notes and periodic reviews.
-- `06 Meetings/` — **agent:** concise meeting syntheses; original transcripts
-  normally go to Archive.
-- `07 People/` — **agent:** useful, proportionate context about people.
-- `08 Templates/` — **system:** reusable project, note, meeting, and review
-  shapes.
-- `09 Attachments/` — **Obsidian:** pasted images and embedded media. It is not
-  an intake queue or document library.
-
-Top-level folders are pre-created. Subfolders are created only when real content
-needs them.
-
-Skills live in `.agents/skills/` and are mirrored in `.claude/skills/` for
-Claude Code. `SKILL.md` and shared resources stay identical in both copies;
-agent-specific metadata stays in its own copy. See `AGENTS.md`.
-
-Disposable agent work belongs only in the hidden root `.tmp/`, which is ignored
-by Git but not by cloud sync. You may clear it at any time; an agent deletes
-only its own working files there once they are no longer needed and asks before
-removing anything else. Do not install dependencies in the vault.
-
-Durable project material uses an optional functional structure under
-`Documents/`: unchanged originals in `Sources/`, created deliverables in
-`Outputs/`, and superseded material in `History/` only when it still has audit
-or decision value.
-
-## Example: an offer and a signed contract
-
-The user only does this:
+You only put files in the Inbox:
 
 ```text
 00 Inbox/
@@ -89,7 +61,8 @@ The user only does this:
   Signed contract - Client X.pdf
 ```
 
-If the project is known, the agent preserves the originals next to the project:
+If the project is known, the agent keeps the originals with the project and
+records the state change, commitments and links on the project card:
 
 ```text
 01 Projects/
@@ -101,127 +74,115 @@ If the project is known, the agent preserves the originals next to the project:
         Signed contract.pdf
 ```
 
-The project card receives the durable state change, important commitments, and
-links to the exact source files. If the project is unknown or classification is
-ambiguous, the agent asks one question and leaves the files in Inbox.
+If classification is ambiguous, it asks one question and leaves the files in
+the Inbox. Reusable material (policies, templates, research) goes to
+`03 Resources/`; processed scratch notes and transcripts go to
+`04 Archive/Imports/YYYY-MM/` once their knowledge is saved.
 
-A company-wide policy, reusable contract template, or research source belongs
-in `03 Resources/`, not inside one project. A processed scratch note,
-transcript, or screenshot normally goes to `04 Archive/Imports/YYYY-MM/` after
-its useful knowledge has been saved.
+Inbox processing runs only while an agent session is active; there is no
+watcher. With `inbox_processing: auto` queued material is handled without a
+command; with `on_demand` only when you ask.
 
-## Natural memory
+## Vault structure
 
-The agent does not wait for “remember this”. Before finishing a substantive
-conversation, it captures clear durable identity, relationship, project,
-decision, commitment, preference, and correction deltas.
+```text
+.
+├── 00 Inbox/          you: the single intake point (+ Inbox.md for quick captures)
+├── 01 Projects/       finite efforts, project cards, project documents
+├── 02 Areas/          ongoing responsibilities (health, finances, role, home)
+├── 03 Resources/      durable knowledge and sources used across projects
+├── 04 Archive/        completed projects and processed intake
+├── 05 Daily Notes/    dated notes and periodic reviews
+├── 06 Meetings/       concise meeting syntheses
+├── 07 People/         proportionate context about people
+├── 08 Templates/      project, note, meeting and review templates
+├── 09 Attachments/    pasted images and embedded media (not an intake queue)
+├── .agents/skills/    agent skills (mirrored in .claude/skills/)
+├── .claude/           Claude Code settings and skills
+├── AGENTS.md          the operating contract for every agent
+├── CLAUDE.md          imports AGENTS.md for Claude Code
+├── Home.md            entry map
+├── Profile.md         your identity, preferences and behavior settings
+└── SECURITY.md        privacy and trust boundaries
+```
 
-- Existing memory receives small, unambiguous updates automatically, including
-  replacing clearly superseded text and reconciling affected decisions and maps.
-- A clearly useful non-project note may be created automatically. A new project
-  card still requires consent by default.
-- Named people, companies, products, and projects are resolved through Profile,
-  maps, and linked canonical notes before generic context is used.
-- Casual chat, unsupported inference, secrets, and full transcripts are not
-  stored as memory.
-- Keep one current account of each outcome, with links to evidence and technical
-  detail. Preserve history only when it explains a decision or supports an audit;
-  do not turn project cards into activity logs.
-- The assistant answers the topic first and follows the configured technical
-  activity reporting mode.
+Subfolders are created only when real content needs them. Project documents
+can use `Documents/Sources/` (unchanged originals), `Documents/Outputs/`
+(deliverables) and `Documents/History/` (superseded material with audit
+value). Disposable agent work goes only to the Git-ignored `.tmp/`.
 
-Minor reversible choices stay with the assistant; questions concern material
-decisions or missing authorization. Explicit requests and prior approvals cover
-their stated scope. File deletion, structural reorganization, and external
-actions still follow the authorization boundaries in `AGENTS.md`.
+## Agent compatibility
 
-There is no hidden watcher. `inbox_processing: auto` handles queued material
-without a special command while Codex or Claude Code is active;
-`inbox_processing: on_demand` does not inspect the queue until requested.
+| Tool | How it loads the rules | Notes |
+| --- | --- | --- |
+| Codex | `AGENTS.md` natively, skills from `.agents/skills/` | `agents/openai.yaml` holds Codex-only skill metadata |
+| Claude Code | `CLAUDE.md` → `@AGENTS.md`, skills from `.claude/skills/` | `.claude/settings.json` disables auto memory and asks before risky shell commands |
+| Other agents | Any tool that reads `AGENTS.md` | If a host does not auto-load it (mounted folders, remote file tools), the pointer at the top of `README.md`, `Home.md` and `Profile.md` tells the agent to read it first |
 
-## Profile controls
+The vault is the canonical memory. Host-side memory may hold pointers, never
+facts instead of a vault write. Skill files (`SKILL.md` and shared resources)
+stay identical in `.agents/skills/` and `.claude/skills/`.
 
-`Profile.md` contains safe defaults and is the only place that should hold
-personal behavior settings or machine-local repository roots. The supported
-policy values are documented in `AGENTS.md`; change them naturally in
-conversation rather than learning commands. In particular:
+<details>
+<summary>Claude Code settings in detail</summary>
 
-- most action controls use `auto`, `ask`, or `off`;
-- `inbox_processing: auto | on_demand` controls whether Inbox processing starts
-  during an active session or only after an explicit request;
-- `memory_mode: proactive | explicit` controls whether ordinary conversation
-  may produce durable memory.
+Start Claude Code from the vault root so it loads `.claude/settings.json`,
+which:
 
-## Technical activity reporting
+- sets `autoMemoryEnabled: false`, so the vault stays the only memory store
+  (this does not delete earlier auto memory, and a higher-precedence setting
+  can override it);
+- asks before `rm`, `rmdir`, `git push`, `git reset` and `git clean`.
 
-`Profile.md` contains the `technical_activity_reporting` switch:
+These prompts add caution; they do not enforce `AGENTS.md`. They do not match
+variants such as `/bin/rm` or `git -C . push`, interpreter-run commands, file
+edits, moves, sending or connectors, and they are not suppressed by
+authorization in `Profile.md` or conversation. An `allow` in
+`.claude/settings.local.json` does not override a project `ask`; edit
+`.claude/settings.json` in your own copy instead. Checked against the Claude
+Code documentation on 2026-10-21.
 
-- `quiet` (default) hides routine notices about files consulted, automatic
-  unambiguous saves, and the absence of changes.
-- `verbose` shows the exact memory and source files consulted and changed, and
-  says when nothing was changed.
+</details>
 
-This setting changes narration, not safety or consent. The assistant still asks
-when a write is ambiguous or requires approval, reports failures and risks, and
-provides source citations when they support the answer. An explicit request for
-an activity report overrides the setting for that response.
+## Configuration
 
-## Originals preserve precision
+All personal settings live in the frontmatter of `Profile.md`; change them by
+asking the agent in conversation. The full list of values is in `AGENTS.md`.
 
-Markdown notes are synthesis, not a replacement for evidence. For an exact
-clause, amount, requirement, version, or quotation, the agent returns to the
-original local file or an authorized connected document. It uses an appropriate
-PDF, document, spreadsheet, or image skill and reports the best available page,
-section, cell, timestamp, or OCR limitation.
+| Setting | Values | Default |
+| --- | --- | --- |
+| `memory_mode` | `proactive` · `explicit` | `proactive` |
+| `existing_memory_updates` | `auto` · `ask` · `off` | `auto` |
+| `new_project_creation` | `auto` · `ask` · `off` | `ask` |
+| `new_note_creation` | `auto` · `ask` · `off` | `auto` |
+| `inbox_processing` | `auto` · `on_demand` | `auto` |
+| `technical_activity_reporting` | `quiet` · `verbose` | `quiet` |
 
-## Software projects
+`quiet` hides routine notices about files consulted and automatic saves;
+`verbose` names them. Neither changes safety: ambiguity, failures, risks and
+required confirmations are always reported.
 
-A project card may contain a direct private `repo` path or a portable
-`{root, path}` locator. Portable roots resolve through the private
-`repository_roots` mapping in `Profile.md`; the public template leaves this map
-empty. Source-level verification starts with repository `AGENTS.md` or
-`CLAUDE.md`, the relevant manifest, root README, directly relevant docs,
-read-only Git state, and only then targeted code. Installs, builds, tests, and
-deployments require a separate request.
+**Software projects.** A project card can point to a repository by a private
+`repo` path or a portable `{root, path}` locator resolved through
+`repository_roots` in `Profile.md` (empty in the template). Installs, builds,
+tests and deployments always need a separate request.
 
-## Existing vaults
+## Migrating an existing vault
 
-Do not overwrite an existing vault. Work on a copy, preserve its content, map
-its folders to this behavior, update links, and verify before replacing the
-original. A familiar PARA-style structure may remain; the behavior matters more
-than identical folder names.
+Do not overwrite it. Work on a copy, map its folders to this behavior, update
+links and verify before replacing the original. A PARA-style structure can
+stay; the behavior matters more than identical folder names.
 
-## Claude Code
+## Privacy and security
 
-`CLAUDE.md` imports `AGENTS.md`, so Claude Code follows the same rules as other
-agents. Start Claude Code from the vault root so it also loads
-`.claude/settings.json`, which:
+- This repository is the empty public template; your vault is private data.
+- Markdown instructions guide agents but are not a sandbox. Any host with
+  folder access can read the vault, and cloud models process the text they use.
+- Never store passwords, tokens, private keys or recovery codes in the vault.
 
-- turns off Claude Code auto memory (`autoMemoryEnabled: false`), so the vault
-  stays the only memory store instead of a parallel store of selective notes.
-  This does not delete earlier auto memory files or conversation history, and a
-  setting with higher precedence can change the effective value;
-- asks before `rm`, `rmdir`, `git push`, `git reset`, and `git clean`.
-
-These rules add caution; they do not enforce `AGENTS.md`. They do not match
-variants such as `/bin/rm` or `git -C . push`, commands run through an
-interpreter, file edits, moves, sending, or connectors. Authorization recorded
-in `Profile.md` or given in conversation does not suppress these prompts,
-including for allowed cleanup in `.tmp/`. To change the rules, edit
-`.claude/settings.json` in your own copy; an `allow` in
-`.claude/settings.local.json` does not override a project `ask`. Other agents
-use their own permission mechanisms, which this template does not configure.
-
-Settings checked against the Claude Code documentation on 2026-10-21.
-
-## Security boundary
-
-Markdown instructions guide behavior but are not a sandbox. A host with folder
-access can technically read its contents, and a cloud model may process text
-used for an answer. Do not store passwords, tokens, private keys, or recovery
-codes in the vault. See `SECURITY.md` before connecting a vault to GitHub or a
-new model provider, or keeping it in a cloud-synchronized folder.
+Read [`SECURITY.md`](SECURITY.md) before connecting a vault to GitHub, a new
+model provider, or a cloud-synced folder.
 
 ## License
 
-MIT. See `LICENSE`.
+[MIT](LICENSE)
