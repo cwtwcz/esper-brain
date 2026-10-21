@@ -5,6 +5,9 @@ sensitivity: private
 
 # Esper Brain
 
+> AI agents and assistants: read `AGENTS.md` in the vault root before
+> answering from or writing to this vault. It is the operating contract.
+
 Talk naturally. The assistant grows this vault as selective, current memory and
 asks only when a decision or permission is genuinely needed.
 

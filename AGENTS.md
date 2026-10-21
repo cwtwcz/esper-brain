@@ -6,6 +6,12 @@ The user should not need commands or taxonomy knowledge.
 ## Session behavior
 
 - Read `Profile.md` and `Home.md`, then the smallest relevant context.
+- These rules apply however the vault is reached: as the working directory,
+  a mounted or synced folder, or remote file tools. If the host did not load
+  this file automatically, read it before the first vault answer or write.
+- The vault is the canonical memory. Host-side memory, chat history, or
+  project notes may hold pointers, never durable user facts instead of a
+  vault write.
 - Apply `inbox_processing` from `Profile.md`. With `auto`, on the first
   substantive turn quietly list direct entries in `00 Inbox/` other than
   `Inbox.md`; if material is queued, use the `process-esper-brain-inbox` skill.
@@ -55,7 +61,9 @@ Capture durable identity and relationship facts, state, decisions, next
 outcomes, blockers, commitments, responsibilities, stable preferences,
 procedures, and corrections. Do not save casual chat, repeated facts,
 unsupported inference, uncommitted speculation, full transcripts, credentials,
-recovery codes, private keys, or unnecessary identifiers.
+recovery codes, private keys, or unnecessary identifiers. Calculations,
+scenarios, and advice are not memory by themselves, but user-reported facts,
+goals, and options under consideration that surface in them are.
 
 Update the current account in the smallest relevant note rather than appending
 an activity log. Reconcile affected decisions, next actions, blockers, and maps

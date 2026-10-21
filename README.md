@@ -1,5 +1,8 @@
 # Esper Brain
 
+> AI agents and assistants: read `AGENTS.md` in the vault root before
+> answering from or writing to this vault. It is the operating contract.
+
 > **A second brain memory system that grows with every conversation.**
 
 **ESPER** stands for **Evidence-Sourced Personal Evolving Repository**.
