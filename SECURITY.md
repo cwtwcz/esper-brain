@@ -19,8 +19,9 @@ workspace and connector access only to services whose privacy terms are
 acceptable for the material involved.
 
 In Claude Code, `.claude/settings.json` adds permission prompts for a few
-risky shell commands. Everywhere else, and for anything those rules do not
-match, `AGENTS.md` is guidance rather than technical enforcement.
+risky shell commands (details in [README](README.md#agent-compatibility));
+everywhere else, and for anything those rules do not match, `AGENTS.md` is
+guidance rather than technical enforcement.
 
 Sensitivity labels improve retrieval discipline but are not encryption or
 technical access controls. Do not store passwords, access tokens, private keys,

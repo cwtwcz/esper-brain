@@ -74,10 +74,16 @@ priority, health, owner, or deadline from general progress.
 
 Keep one canonical account of each outcome; create another document only for
 a distinct purpose. Project cards hold current state, key decisions, and next
-steps, with links to technical details and verification. Preserve history only
-for decision or audit value, and date unresolved conflicting claims with their
-provenance. Clearly superseded text may be replaced; unchanged originals remain
-evidence, and useful superseded documents belong in `Documents/History/`.
+steps, with links to technical details and verification. `entrypoints` lists
+the files to read first when returning to the project: paths are relative to
+the repository named by `repo`, or to the card's folder when `repo` is empty.
+Preserve history only for decision or audit value, and date unresolved
+conflicting claims with their provenance. Clearly superseded text may be
+replaced; unchanged originals remain evidence, and useful superseded documents
+belong in `Documents/History/`.
+
+Project `status` is one of `active | waiting | maintenance | idea | done`;
+the card's section in `01 Projects/Projects.md` matches it.
 
 Before creating a project, check `01 Projects/Projects.md` and likely
 filenames. Apply `new_project_creation`; after authorization, instantiate
@@ -118,10 +124,12 @@ Do not add top-level categories. Under a project, create only useful parts of
 `Documents/Sources/` for unchanged originals, `Documents/Outputs/` for durable
 deliverables, and `Documents/History/` for superseded evidence worth retaining.
 Use root `.tmp/` as the only disposable workspace; never create other root
-scratch or result folders. Do not install dependencies such as `node_modules`
-or virtual environments in the vault; code work belongs in its repository,
-which still needs its own authorization. Keep large working files out of a
-cloud-synchronized vault: `.gitignore` excludes `.tmp/` from Git, not from sync.
+scratch or result folders. Working files written by tools go to `.tmp/`;
+durable results go to the project's `Documents/Outputs/`. Do not install
+dependencies such as `node_modules` or virtual environments in the vault;
+code work belongs in its repository, which still needs its own authorization.
+Keep large working files out of a cloud-synchronized vault: `.gitignore`
+excludes `.tmp/` from Git, not from sync.
 Replace template placeholders when instantiating a canonical note.
 
 ## Conversation routes
@@ -211,5 +219,5 @@ folder access can technically read the vault, and a cloud model may process text
 used for an answer. Preserve user wording, links, provenance, and useful
 uncertainty.
 
-Follow the profile's language, tone, length, challenge, and technical depth.
-Style never hides uncertainty, evidence, privacy, or risk.
+Follow the profile's language and working preferences. Style never hides
+uncertainty, evidence, privacy, or risk.

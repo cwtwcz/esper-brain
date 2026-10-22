@@ -2,10 +2,6 @@
 type: profile
 language: auto
 timezone: local
-response_style: balanced
-tone: direct
-challenge: constructive
-technical_depth: adaptive
 technical_activity_reporting: quiet
 memory_mode: proactive
 existing_memory_updates: auto
@@ -33,5 +29,8 @@ before saving it.
 ## Current focus
 
 ## Working preferences
+
+- Direct and concise. Challenge constructively. Match technical depth to the
+  question.
 
 ## Important boundaries

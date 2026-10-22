@@ -169,6 +169,8 @@ asking the agent in conversation. The full list of values is in `AGENTS.md`.
 | `new_project_creation` | `auto` · `ask` · `off` | `ask` |
 | `new_note_creation` | `auto` · `ask` · `off` | `auto` |
 | `inbox_processing` | `auto` · `on_demand` | `auto` |
+| `source_lookup` | `on_demand` · `ask` · `off` | `on_demand` |
+| `external_source_retention` | `important_auto` · `ask` · `off` | `important_auto` |
 | `technical_activity_reporting` | `quiet` · `verbose` | `quiet` |
 
 `quiet` hides routine notices about files consulted and automatic saves;

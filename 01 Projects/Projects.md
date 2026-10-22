@@ -5,12 +5,16 @@ sensitivity: private
 
 # Projects
 
-A project is a finite effort with an outcome. When a new one appears naturally,
-the assistant asks before creating its folder and card.
+A project is a finite effort with an outcome. New project cards follow
+`new_project_creation` in Profile.
 
 ## Active
 
 ## Waiting
+
+## Maintenance
+
+## Ideas
 
 ## Recently completed
 
