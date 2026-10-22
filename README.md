@@ -123,6 +123,18 @@ The vault is the canonical memory. Host-side memory may hold pointers, never
 facts instead of a vault write. Skill files (`SKILL.md` and shared resources)
 stay identical in `.agents/skills/` and `.claude/skills/`.
 
+### Hosts that do not load AGENTS.md
+
+Paste this into the host's instructions (project instructions, a global agent
+file, or a remote-folder setup):
+
+```text
+This folder is an Esper Brain vault: <path to vault>.
+Before your first answer from it or write to it, read AGENTS.md,
+Profile.md and Home.md in its root, and follow AGENTS.md.
+Save durable facts in the vault, not in host-side memory.
+```
+
 <details>
 <summary>Claude Code settings in detail</summary>
 
