@@ -134,6 +134,8 @@ Replace template placeholders when instantiating a canonical note.
 - Review: read `00 Inbox/Inbox.md`, the project map, and recent Daily Notes;
   surface changed outcomes, blockers, waiting items, decisions, and open loops.
   Save a dated review only when requested or accepted.
+- Vault check: on request, use the read-only `review-esper-brain` skill; it
+  reports the Inbox queue without processing it.
 
 ## Skills
 
