@@ -39,7 +39,8 @@ background process.
 
 1. **Create your copy.** Click **Use this template** → create a **private**
    repository, or download the archive for a local-only vault (remove `.git`
-   if you do not want version control).
+   if you do not want version control). Record the template commit SHA in
+   `template_commit` in `Home.md`, or ask your agent to do it.
 2. **Open the folder** as an Obsidian vault and as the workspace of your agent
    (Codex, Claude Code, or another `AGENTS.md`-aware tool), started from the
    vault root.
@@ -123,6 +124,18 @@ The vault is the canonical memory. Host-side memory may hold pointers, never
 facts instead of a vault write. Skill files (`SKILL.md` and shared resources)
 stay identical in `.agents/skills/` and `.claude/skills/`.
 
+### Hosts that do not load AGENTS.md
+
+Paste this into the host's instructions (project instructions, a global agent
+file, or a remote-folder setup):
+
+```text
+This folder is an Esper Brain vault: <path to vault>.
+Before your first answer from it or write to it, read AGENTS.md,
+Profile.md and Home.md in its root, and follow AGENTS.md.
+Save durable facts in the vault, not in host-side memory.
+```
+
 <details>
 <summary>Claude Code settings in detail</summary>
 
@@ -156,6 +169,8 @@ asking the agent in conversation. The full list of values is in `AGENTS.md`.
 | `new_project_creation` | `auto` · `ask` · `off` | `ask` |
 | `new_note_creation` | `auto` · `ask` · `off` | `auto` |
 | `inbox_processing` | `auto` · `on_demand` | `auto` |
+| `source_lookup` | `on_demand` · `ask` · `off` | `on_demand` |
+| `external_source_retention` | `important_auto` · `ask` · `off` | `important_auto` |
 | `technical_activity_reporting` | `quiet` · `verbose` | `quiet` |
 
 `quiet` hides routine notices about files consulted and automatic saves;
@@ -172,6 +187,21 @@ tests and deployments always need a separate request.
 Do not overwrite it. Work on a copy, map its folders to this behavior, update
 links and verify before replacing the original. A PARA-style structure can
 stay; the behavior matters more than identical folder names.
+
+## Updating a vault
+
+Never overwrite vault files wholesale: `AGENTS.md`, skills and templates may
+carry deliberate local changes. Ask your agent to:
+
+1. Read `template_commit` from the vault's `Home.md`.
+2. If it is empty, compare the vault files with the template's current `main`
+   and do not treat differences as errors.
+3. Otherwise, compare the template's changes from `template_commit` to the
+   current `main` with the vault files.
+4. Carry the template changes over while keeping the vault's local changes.
+5. Present every conflict that cannot be resolved unambiguously and wait for
+   your decision.
+6. Write the new commit SHA to `template_commit`.
 
 ## Privacy and security
 
